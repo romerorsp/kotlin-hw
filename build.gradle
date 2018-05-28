@@ -1,0 +1,33 @@
+plugins {
+    id "org.jetbrains.kotlin.jvm" version "1.2.41"
+}
+
+apply plugin: 'java-library'
+
+apply plugin: 'kotlin'
+
+sourceCompatibility = 1.8
+
+ext {
+    kotlin_version = '1.2.41'
+    jUnitVersion = '4.12'
+}
+repositories {
+    jcenter()
+    mavenCentral()
+}
+
+dependencies {
+
+    compile "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+
+    testCompile group: 'junit', name: 'junit', version: jUnitVersion
+
+}
+
+sourceSets {
+    main.kotlin.srcDirs += 'src/main/kotlin'
+    main.java.srcDirs += 'src/main/java'
+}
